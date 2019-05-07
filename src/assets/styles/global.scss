@@ -1,0 +1,36 @@
+@import 'variables';
+// global styles
+body {
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+form {
+    input {
+        display: block;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.buckets-logo-8x {
+    width: $img-8x;
+    margin: 0 auto;
+    display: block;
+}
+
+// buttons
+.btn-rounded-green {
+    height: 36px;
+    border-radius: 30px;
+    min-width: 100px;
+    border: 0;
+    background: #0eee73;
+    color: white;
+    display: inline-block;
+    padding: 5px;
+    background: linear-gradient(135deg, $primary-green 0%, $vibrant-green 100%);
+    display: inline-block;
+}
