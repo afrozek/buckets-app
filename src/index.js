@@ -8,8 +8,20 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 
 import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
 import reducers from './reducers/reducers.js';
+import 'normalize.css';
 import './assets/styles/global.scss';
+
+import * as log from 'loglevel';
+
+log.enableAll();
+log.trace("logger trace test");
+log.debug("logger debug test");
+log.info("logger info test");
+log.warn("logger warn test");
+log.error("logger error test");
 
 
 

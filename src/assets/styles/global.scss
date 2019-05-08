@@ -1,14 +1,26 @@
 @import 'variables';
+@import 'fonts';
+
 // global styles
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat-Regular', sans-serif;
     -webkit-font-smoothing: antialiased;
+}
+
+input {
+    cursor: inherit;    
 }
 
 form {
     input {
         display: block;
+        font-family: 'Montserrat-Regular', sans-serif;
+        -webkit-font-smoothing: antialiased;
     }
+}
+
+a {
+    text-decoration: none;
 }
 
 .text-center {
