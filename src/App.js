@@ -41,7 +41,7 @@ class Root extends Component {
        
         <BrowserRouter>
             <div>
-              <h1>hi 2</h1>
+              {/* <h1>hi 2</h1>
               <h2>version: {this.props.settings.version} </h2>
               <h2>loggedIn: {this.props.auth.loggedIn} </h2>
               <button className="btn btn-success" onClick={() => this.props.setVersion('6')}>change version</button>
@@ -52,8 +52,8 @@ class Root extends Component {
                   <li><Link to="/auth/login">login</Link></li>
                   <li><Link to="/auth/signup">signup</Link></li>
                   
-                </ul>
-                <hr/>
+            </ul>
+                <hr/> */}
                 <Switch>
                   <Route exact path="/" >
                     <Redirect to="/auth/login"/>

@@ -9,7 +9,7 @@ import logoBuckets from "../../assets/images/logoBuckets.svg";
 import { setVersion } from '../../actions/actions.js';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import { Container, Row, Col } from 'reactstrap';
+
 
 
 
@@ -23,24 +23,26 @@ class Auth extends Component {
     console.log(this.props);
 
     return (
-      <Container id="auth-page" fluid>
-        <Container>
-          <Row>
-            <Col md="12">
+      <div className="container" id="auth-page" fluid>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
             
+              <div className="centerText">
               <img
                 id="buckets-logo"
                 src={logoBuckets}
                 alt={logoBuckets}
                 className="buckets-logo-8x"
               />
+              </div>
               
               
               {this.props.children}
-            </Col>
-          </Row>
-        </Container>
-      </Container>
+            </div>
+          </div>
+        </div>
+      </div>
 
       // end container
     );

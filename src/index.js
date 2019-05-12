@@ -12,6 +12,7 @@ import thunk from 'redux-thunk';
 
 import reducers from './reducers/reducers.js';
 import 'normalize.css';
+import 'bootstrap';
 import './assets/styles/global.scss';
 
 import * as log from 'loglevel';
