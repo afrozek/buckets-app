@@ -4,25 +4,26 @@
 
 // global styles
 body {
-    font-family: 'Montserrat-Regular', sans-serif;
-    -webkit-font-smoothing: antialiased;
+    font-family: 'Montserrat', sans-serif;
+    // -webkit-font-smoothing: antialiased;
+    font-size: 14px;
 }
 
-// input {
-//     cursor: inherit;    
-// }
+input {
+    cursor: inherit;    
+}
 
-// form {
-//     input {
-//         display: block;
-//         font-family: 'Montserrat-Regular', sans-serif;
-//         -webkit-font-smoothing: antialiased;
-//     }
-// }
+form {
+    input {
+        display: block;
+        font-family: 'Montserrat', sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+}
 
-// a {
-//     text-decoration: none;
-// }
+a {
+    text-decoration: none;
+}
 
 .text-center {
     text-align: center;
