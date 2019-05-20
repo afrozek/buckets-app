@@ -40,7 +40,7 @@ class Root extends Component {
         return (
        
         <BrowserRouter>
-            <div>
+            <div className="h-100">
               {/* <h1>hi 2</h1>
               <h2>version: {this.props.settings.version} </h2>
               <h2>loggedIn: {this.props.auth.loggedIn} </h2>

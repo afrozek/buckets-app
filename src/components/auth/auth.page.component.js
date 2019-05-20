@@ -23,9 +23,9 @@ class Auth extends Component {
     console.log(this.props);
 
     return (
-      <div className="container-fluid" id="auth-page">
-        <div className="container">
-          <div className="row">
+      <div id="auth-page" className="container-fluid d-flex" >
+        <div className="container d-flex">
+          <div className="row flex-fill">
             <div className="col-md-12">
             
               <div className="centerText">

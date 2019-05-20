@@ -11,8 +11,10 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 import reducers from './reducers/reducers.js';
-import 'normalize.css';
+// import 'normalize.css';
 import 'bootstrap';
+// import 'bootstrap/dist/css/bootstrap.css';
+
 import './assets/styles/global.scss';
 
 import * as log from 'loglevel';
