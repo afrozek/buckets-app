@@ -19,6 +19,9 @@ import { bindActionCreators } from 'redux';
 import Auth from './components/auth/auth.page.component';
 import Login from './components/auth/login.component';
 import Signup from './components/auth/signup.component';
+import Dashboard from './components/dashboard/dashboard.page.component';
+import DashboardHome from './components/dashboard/dashboard-home.component';
+
 
 
 class Hello extends React.Component {
@@ -68,6 +71,16 @@ class Root extends Component {
                     </Auth>
                    
                   </Route>
+
+                  <Route path="/dashboard">
+                    <Dashboard>
+                      <Route path="/dashboard/home" component={DashboardHome} />
+                      {/* <Route path="/dashboard/new-guide" component={DashboardNewGuide} /> */}
+                    </Dashboard>
+                  </Route>
+
+                  
+
               </Switch>
             </div>            
           </BrowserRouter>

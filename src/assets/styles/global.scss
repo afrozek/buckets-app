@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import 'variables';
+@import 'colors';
 @import 'fonts';
 @import 'helpers';
 
@@ -34,8 +35,8 @@ a {
     text-align: center;
 }
 
-.buckets-logo-8x {
-    width: $img-8x;
+.buckets-logo-6x {
+    width: $img-6x;
     margin: 0 auto;
     display: block;
 }

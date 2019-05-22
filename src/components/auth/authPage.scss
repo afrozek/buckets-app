@@ -1,8 +1,10 @@
 @import '../../assets/styles/variables.scss';
+@import '../../assets/styles/colors.scss';
+
 #auth-page {
     background: $light-green;
     height: 100%;
-    
+
     #buckets-logo {
     margin-top: 100px;
     margin-bottom: 40px;
