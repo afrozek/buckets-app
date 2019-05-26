@@ -8,6 +8,8 @@ import logoBuckets from "../../assets/images/logoBuckets.svg";
 import homeGreenIcon from "../../assets/images/home-green-icon.svg";
 import fadedGreySearchIcon from "../../assets/images/search-faded-grey-icon.svg";
 
+import DashboardSidebar from './dashboard-sidebar.component';
+
 // import { setVersion } from '../../actions/actions.js';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -39,7 +41,7 @@ class Dashboard extends Component {
               {/* </div> */}
 
               <div className="sidebar-container">
-                  <ul class="sidebar-nav">
+                  <ul className="sidebar-nav">
                       <li>
                           <a href="">
                               <span className="icon-small">
@@ -114,6 +116,8 @@ class Dashboard extends Component {
               </nav>
               {/* End Top Nav */}
                 body
+               
+                <DashboardSidebar sidebar={this.props.sidebar}/>
                 {this.props.children}
             </div>
           </div>
@@ -126,7 +130,8 @@ class Dashboard extends Component {
 
 function mapStateToProps(state) {
   return {
-      settings: state.settings
+      settings: state.settings,
+      sidebar: state.dashboardSidebar
   }
 }
 

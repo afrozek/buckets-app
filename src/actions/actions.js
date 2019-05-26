@@ -61,5 +61,12 @@ export const fetchAllDataV2 = () => async (dispatch, getState) => {
   );
 }; // fetchAllDataV2
 
+export const fetchSidebar = () => {
+  log.debug("Called fetchSidebar from actions.js");
+  return{
+    type: "FETCH_SIDEBAR"
+  }
+}
+
 
 
