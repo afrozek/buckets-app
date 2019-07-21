@@ -28,7 +28,7 @@ class Auth extends Component {
           <div className="row flex-fill">
             <div className="col-md-12">
             
-              <div className="centerText">
+              <div className="text-center">
               <img
                 id="buckets-logo"
                 src={logoBuckets}
