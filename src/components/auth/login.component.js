@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GoogleAuth from './googleAuth.component.js';
 import axios from 'axios';
 import * as log from "loglevel";
 
@@ -144,6 +145,9 @@ export default class Login extends Component {
               </div>
               {loginErrorView}
             </form>
+            <div className="text-center">
+              <GoogleAuth />
+            </div>
             <div className="text-center">
               <a href="">Sign Up</a>
             </div>
