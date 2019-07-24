@@ -1,4 +1,7 @@
 import React from "react";
+import { connect } from 'react-redux';
+import { login , logout } from '../../actions/actions';
+
 import * as log from "loglevel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -8,13 +11,7 @@ import { red, white } from "ansi-colors";
 library.add(fab);
 
 class GoogleAuth extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "Google OAuth2 Component",
-      loggedIn: null
-    };
-  }
+
 
   componentDidMount() {
     window.gapi.load("client:auth2", () => {
@@ -30,14 +27,20 @@ class GoogleAuth extends React.Component {
         .then(() => {
           this.auth = window.gapi.auth2.getAuthInstance();
           log.debug("this.auth: ", this.auth);
-          this.onAuthChange();
+          this.onAuthChange(this.auth.isSignedIn.get());
           this.auth.isSignedIn.listen(this.onAuthChange);
         });
     });
   } // end componentDidMount
 
-  onAuthChange = () => {
-    this.setState({ loggedIn: this.auth.isSignedIn.get() });
+  onAuthChange = (isLoggedIn) => {
+      log.debug("Called onAuthChange: ", isLoggedIn)
+    // this.setState({ loggedIn: this.auth.isSignedIn.get() });
+    if(isLoggedIn) {
+        this.props.login();
+    } else {
+        this.props.logout();
+    }
   };
 
   onLoginClick = () => {
@@ -58,7 +61,7 @@ class GoogleAuth extends React.Component {
     };
 
     
-    if (this.state.loggedIn) {
+    if (this.props.isLoggedIn) {
       return (
           <button
           className="btn btn-md  bg-danger google-signin"
@@ -91,4 +94,9 @@ class GoogleAuth extends React.Component {
   } // end render
 } // end class GoogleAuth
 
-export default GoogleAuth;
+const mapStateToProps = (state) => {
+    return {isLoggedIn: state.authReducer.isLoggedIn}
+}
+
+
+export default connect(mapStateToProps, {login, logout})(GoogleAuth);

@@ -2,13 +2,18 @@
 //   return { version: '2.0' };
 // }
 
-export default function(state, action) {
+const INITIAL_STATE = {
+  isLoggedIn: null
+}
+
+export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
-    case 'LOGGED_IN': 
-      console.log(action.payload);
-      return { loggedIn: action.payload };
+    case 'LOG_IN': 
+      return {...state, isLoggedIn: true}
+    case 'LOG_OUT': 
+      return {...state, isLoggedIn: false}
     default:
-      return { loggedIn: "false" };
+      return state;
   }
 
 }

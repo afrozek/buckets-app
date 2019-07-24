@@ -2,6 +2,20 @@ import bucketsApi from "../api/bucketsApi.js";
 
 import * as log from "loglevel";
 
+
+export const login = () => {
+  return {
+    type: "LOG_IN"
+  }
+} // end login 
+
+export const logout = () => {
+  return {
+    type: "LOG_OUT"
+  }
+} // end logout 
+
+
 export const setVersion = version => {
   log.debug("set version action called:", version);
   return {
