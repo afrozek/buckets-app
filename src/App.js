@@ -33,10 +33,6 @@ class Hello extends React.Component {
   }
 
 
-
-
-
-
  
 class Root extends Component {
     render() {

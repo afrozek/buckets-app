@@ -3,9 +3,10 @@ import bucketsApi from "../api/bucketsApi.js";
 import * as log from "loglevel";
 
 
-export const login = () => {
+export const login = (userId) => {
   return {
-    type: "LOG_IN"
+    type: "LOG_IN",
+    payload: userId
   }
 } // end login 
 
