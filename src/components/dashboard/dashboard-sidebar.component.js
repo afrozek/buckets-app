@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 export default class DashboardSidebar extends Component {
 
@@ -9,7 +10,7 @@ export default class DashboardSidebar extends Component {
                  return this.props.sidebar.sidebar.map( item => {
                     return (
                         <li className="nav-item active">
-                          <a className="nav-link" href="#">{item.displayName} <span className="sr-only">(current)</span></a>
+                          <Link className="nav-link" to={item.path}>{item.displayName} <span className="sr-only">(current)</span></Link>
                         </li>
                     )
                 })

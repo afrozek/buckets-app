@@ -65,14 +65,17 @@ export default class Login extends Component {
       method: 'post',
       url: 'http://localhost:3200/api/users/login',
       data: {
-        email: 'afrozek95@gmail.com',
-        password: 'khan4120'
+        email: 'joe3@gmail.com',
+        password: 'somepass'
       }
     })
       .then(res => {
+        console.log(res)
         const persons = res.data;
         this.setState({ submitted: false });
         this.props.history.push('/dashboard/home');
+      }, err => {
+        alert("nope!")
       })
       .catch(this.loginErrorHandler);
   } // end sendLoginRequest

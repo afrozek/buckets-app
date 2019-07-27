@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import requireAuth from '../auth/requireAuth';
 
 import './dashboard.scss';
 import logoBuckets from "../../assets/images/logoBuckets.svg";
 import homeGreenIcon from "../../assets/images/home-green-icon.svg";
 import fadedGreySearchIcon from "../../assets/images/search-faded-grey-icon.svg";
+import GoogleAuth from "../auth/googleAuth.component";
 
 import DashboardSidebar from './dashboard-sidebar.component';
 
 // import { setVersion } from '../../actions/actions.js';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
+
+import * as log from 'loglevel';
 
 
 
@@ -21,6 +24,9 @@ import { withRouter } from 'react-router-dom';
 
 
 class Dashboard extends Component {
+
+
+  
 
 
   render() {
@@ -115,6 +121,7 @@ class Dashboard extends Component {
                 </div>
               </nav>
               {/* End Top Nav */}
+              <GoogleAuth />
                 body
                
                 <DashboardSidebar sidebar={this.props.sidebar}/>
@@ -135,7 +142,7 @@ function mapStateToProps(state) {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Dashboard))
+export default withRouter(connect(mapStateToProps)(requireAuth(Dashboard)))
 
 // promotes to a container
 // export default (connect(mapStateToProps)(Dashboard));
