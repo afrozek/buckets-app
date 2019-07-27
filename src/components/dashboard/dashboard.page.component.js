@@ -14,6 +14,8 @@ import DashboardSidebar from './dashboard-sidebar.component';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 
+import * as log from 'loglevel';
+
 
 
 
@@ -21,6 +23,25 @@ import { withRouter } from 'react-router-dom';
 
 
 class Dashboard extends Component {
+
+    // component got rendered
+    componentDidMount() {
+      this.shouldNavigateAway()
+    } 
+    // end componentDidMount
+  
+    // component got updated
+    componentDidUpdate() {
+      this.shouldNavigateAway();
+    }
+    // end componentDidUpdate
+  
+    shouldNavigateAway() {
+      if(!this.props.isLoggedIn) {
+        log.info("Not Logged In, Navigate Away");
+      }
+    }
+  
 
 
   render() {
@@ -130,6 +151,8 @@ class Dashboard extends Component {
 
 function mapStateToProps(state) {
   return {
+      authReducer: state.authReducer,
+      isLoggedIn: state.authReducer.isLoggedIn,
       settings: state.settings,
       sidebar: state.dashboardSidebar
   }

@@ -1,6 +1,13 @@
 export default function (state, action) {
 
     let sidebar = [
+      {
+        name: "login",
+        displayName: "login page",
+        disabled: false,
+        iconPath: "/assets/images/home-white-icon.svg",
+        path: '/auth/login'
+      },
         {
           name: "home",
           displayName: "Dash Home",
