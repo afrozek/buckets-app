@@ -83,5 +83,12 @@ export const fetchSidebar = () => {
   }
 }
 
-
+export const fetchTransactions = () => async dispatch => {
+  const response = await bucketsApi.get("/transaction/all");
+  log.debug("fetched all transactions response", response);
+  dispatch({
+    type: "FETCH_TRANSACTIONS",
+    payload: response
+  });
+};
 
