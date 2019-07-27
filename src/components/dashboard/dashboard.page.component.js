@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import requireAuth from '../auth/requireAuth';
 
 import './dashboard.scss';
 import logoBuckets from "../../assets/images/logoBuckets.svg";
@@ -25,27 +25,7 @@ import * as log from 'loglevel';
 
 class Dashboard extends Component {
 
-    // component got rendered
-    componentDidMount() {
-      log.info("componentDidMount called");
-      this.shouldNavigateAway()
-    } 
-    // end componentDidMount
-  
-    // component got updated
-    componentDidUpdate() {
-      log.info("componentDidUpdate called");
-      this.shouldNavigateAway();
-    }
-    // end componentDidUpdate
-  
-    shouldNavigateAway() {
-      log.info("shouldNavigateAway called");
-      if(!this.props.isLoggedIn) {
-        log.info("Not Logged In, Navigate Away");
-        this.props.history.push('/');
-      }
-    }
+
   
 
 
@@ -157,14 +137,12 @@ class Dashboard extends Component {
 
 function mapStateToProps(state) {
   return {
-      authReducer: state.authReducer,
-      isLoggedIn: state.authReducer.isLoggedIn,
       settings: state.settings,
       sidebar: state.dashboardSidebar
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Dashboard))
+export default withRouter(connect(mapStateToProps)(requireAuth(Dashboard)))
 
 // promotes to a container
 // export default (connect(mapStateToProps)(Dashboard));
