@@ -7,6 +7,7 @@ import './dashboard.scss';
 import logoBuckets from "../../assets/images/logoBuckets.svg";
 import homeGreenIcon from "../../assets/images/home-green-icon.svg";
 import fadedGreySearchIcon from "../../assets/images/search-faded-grey-icon.svg";
+import GoogleAuth from "../auth/googleAuth.component";
 
 import DashboardSidebar from './dashboard-sidebar.component';
 
@@ -26,19 +27,23 @@ class Dashboard extends Component {
 
     // component got rendered
     componentDidMount() {
+      log.info("componentDidMount called");
       this.shouldNavigateAway()
     } 
     // end componentDidMount
   
     // component got updated
     componentDidUpdate() {
+      log.info("componentDidUpdate called");
       this.shouldNavigateAway();
     }
     // end componentDidUpdate
   
     shouldNavigateAway() {
+      log.info("shouldNavigateAway called");
       if(!this.props.isLoggedIn) {
         log.info("Not Logged In, Navigate Away");
+        this.props.history.push('/');
       }
     }
   
@@ -136,6 +141,7 @@ class Dashboard extends Component {
                 </div>
               </nav>
               {/* End Top Nav */}
+              <GoogleAuth />
                 body
                
                 <DashboardSidebar sidebar={this.props.sidebar}/>
