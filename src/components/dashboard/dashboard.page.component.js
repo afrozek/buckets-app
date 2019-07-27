@@ -11,7 +11,7 @@ import GoogleAuth from "../auth/googleAuth.component";
 
 import DashboardSidebar from './dashboard-sidebar.component';
 
-// import { setVersion } from '../../actions/actions.js';
+import { fetchTransactions } from '../../actions/actions';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 
@@ -24,6 +24,22 @@ import * as log from 'loglevel';
 
 
 class Dashboard extends Component {
+  
+  componentDidMount() {
+        
+    // Do the initial fetching of data in this lifecycle method
+    
+    setTimeout(()=> {
+        this.props.fetchTransactions().then(() => {
+            log.debug("loaded all transactions");
+            // this.setState({loaded: true});
+        });
+    }, 2000)
+
+    
+
+    log.debug("guides from component: ", this.props.items);
+}
 
 
   
@@ -123,6 +139,7 @@ class Dashboard extends Component {
               {/* End Top Nav */}
               <GoogleAuth />
                 body
+                transactions:{JSON.stringify(this.props.transactions)}
                
                 <DashboardSidebar sidebar={this.props.sidebar}/>
                 {this.props.children}
@@ -138,11 +155,12 @@ class Dashboard extends Component {
 function mapStateToProps(state) {
   return {
       settings: state.settings,
-      sidebar: state.dashboardSidebar
+      sidebar: state.dashboardSidebar,
+      transactions: state.transactionsReducer
   }
 }
 
-export default withRouter(connect(mapStateToProps)(requireAuth(Dashboard)))
+export default withRouter(connect(mapStateToProps, {fetchTransactions})(requireAuth(Dashboard)))
 
 // promotes to a container
 // export default (connect(mapStateToProps)(Dashboard));

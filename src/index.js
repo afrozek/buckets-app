@@ -37,7 +37,7 @@ log.error("logger error test");
 
 // import Root from './root';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, composeEnhancers(applyMiddleware()));
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
 
 ReactDOM.render(
