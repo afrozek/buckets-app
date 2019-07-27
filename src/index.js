@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 
 import { createStore, applyMiddleware, compose } from 'redux';
+
 import thunk from 'redux-thunk';
 
 import reducers from './reducers/reducers.js';
@@ -18,6 +19,7 @@ import 'bootstrap';
 import './assets/styles/global.scss';
 
 import * as log from 'loglevel';
+
 
 log.enableAll();
 log.trace("logger trace test");
@@ -34,8 +36,8 @@ log.error("logger error test");
 // ReactDOM.render(<App />, document.getElementById('root'));
 
 // import Root from './root';
-
-let store = createStore(reducers);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhancers(applyMiddleware()));
 
 
 ReactDOM.render(
